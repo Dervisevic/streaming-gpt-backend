@@ -68,11 +68,11 @@ async function askGPT(prompt, res) {
 
   stream.on('end', () => {
     res.write(`data: %%STRIMDONE%%\n\n`);
-    console.log(`stream done for ${lang}`)
+    console.log(`stream done for ${prompt}`)
   });
   stream.on('error', (e) => {
     res.write(`data: %%STRIMERROR%%\n\n`);
-    console.log('${lang}: Stream ERROR,', e);
+    console.log(`${prompt}: Stream ERROR,`, e);
   });
 }
 
